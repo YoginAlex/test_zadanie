@@ -11,12 +11,13 @@
 - В нужном файле модели делаем импорт - from likedislike.decorator import likedecor
 - Нужную нам модель декорируем @likedecor
 - В шаблоне пишем нечто подобное:
-            {% if o.likedislike|length > 0 %}
-                {% for ll in o.likedislike %}
-                    {% if ll.obj_id == o.id %}
-                    <a href="{% url setlike %}?model={{o|get_class}}&obj_id={{o.id}}">
-                        {{ll.like_dislike}}
-                    </a>
-                    {% endif %}
-                {% endfor %}
+
+    {% if o.likedislike|length > 0 %}
+        {% for ll in o.likedislike %}
+            {% if ll.obj_id == o.id %}
+            <a href="{% url setlike %}?model={{o|get_class}}&obj_id={{o.id}}">
+                {{ll.like_dislike}}
+            </a>
             {% endif %}
+        {% endfor %}
+    {% endif %}
