@@ -2,7 +2,7 @@
 import datetime
 from django.db import models
 from django.utils import timezone
-from likedislike.decorator import *
+from likedislike.decorator import likedecor
 
 @likedecor
 class Testzad(models.Model):
