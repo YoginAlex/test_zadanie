@@ -4,14 +4,14 @@
 
 **Приведено готовое web-приложение**
 Нужный нам app - __likedislike__
-- Подключаем в settings.py
-- Делаем syncdb
-- В urls.py - url(r'^setlike/$', 'likedislike.views.setlike', name='setlike'),
-- В шаблоне подгружаем {% load class_tag %}
-- В нужном файле модели делаем импорт - from likedislike.decorator import likedecor
-- Нужную нам модель декорируем @likedecor
+- Подключаем в `settings.py`
+- Делаем `syncdb`
+- В urls.py - `url(r'^setlike/$', 'likedislike.views.setlike', name='setlike'),`
+- В шаблоне подгружаем `{% load class_tag %}`
+- В нужном файле модели делаем импорт - `from likedislike.decorator import likedecor`
+- Нужную нам модель декорируем `@likedecor`
 - В шаблоне пишем нечто подобное:
-
+```
     {% if o.likedislike|length > 0 %}
         {% for ll in o.likedislike %}
             {% if ll.obj_id == o.id %}
@@ -21,3 +21,4 @@
             {% endif %}
         {% endfor %}
     {% endif %}
+```
